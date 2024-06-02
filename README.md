@@ -1,6 +1,6 @@
 # uncertainty-based-multimodality
 
-[Multi-modal architecture](https://github.com/Msgun/uncertainty-based-multimodality/blob/main/architecture.PNG)
+![Multi-modal architecture](https://github.com/Msgun/uncertainty-based-multimodality/blob/main/architecture.PNG)
 
 
 
