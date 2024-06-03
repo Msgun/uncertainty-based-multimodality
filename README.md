@@ -15,4 +15,6 @@ To install requirements
 pip install -r requirements.txt
 ```
 
-For any questions, send an email to: misgina.hagos@ucdconnect.ie
+Trained models can be downloaded from [this Google drive link.](https://drive.google.com/drive/folders/1Hi3BLR_Bc3RnA95ojs1_l-x2JM1IFK9m?usp=sharing)
+
+For any questions, please reach out to: misgina.hagos@ucdconnect.ie
