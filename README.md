@@ -4,7 +4,7 @@
 
 
 
-This repository contains implementation of the paper titled "Multi-Modal Learning for Uncertain Cases of Alzheimer's Disease Identification". Paper currently under reviw.
+This repository contains an implementation of the paper titled "Multi-Modal Learning for Uncertain Cases of Alzheimer's Disease Identification". The paper is currently under review.
 
 We adapted EDL codes from the [pytorch-classification-uncertainty repo](https://github.com/dougbrion/pytorch-classification-uncertainty).
 
