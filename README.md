@@ -14,3 +14,5 @@ To install requirements
 ```
 pip install -r requirements.txt
 ```
+
+For any questions, send an email to: misgina.hagos@ucdconnect.ie
