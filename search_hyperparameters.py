@@ -1,5 +1,5 @@
+# +
 import keras_tuner
-
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import BatchNormalization
@@ -11,10 +11,11 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.layers import Input
 from tensorflow.keras.models import Model
-
 from tensorflow.keras.layers import concatenate
 from tensorflow.keras.optimizers import Adam
 
+
+# -
 
 def create_mlp(hp, dim):
     model = Sequential()
@@ -42,7 +43,7 @@ def create_cnn(hp, width, height, depth, filters=([32, 64, 128, 256])):
             x = concatenate([l, r])
         x = Conv3D(f, kernel_size=3, padding="same")(x)
         x = Activation("relu")(x)
-        x = BatchNormalization()(x) # (axis=chanDim)
+        x = BatchNormalization()(x)
         x = MaxPooling3D(pool_size=2)(x)
     x = Flatten()(x)
     x = Dense(128)(x)
