@@ -22,20 +22,28 @@ def create_mlp(hp, dim):
     model.add(Dense(128, activation="relu"))
     model.add(Dense(64, activation="relu"))
     return model
-    
+
 def create_cnn(hp, width, height, depth, filters=([32, 64, 128, 256])):
     inputShape = (height, width, depth, 1)
     chanDim = -1
     inputs = Input(shape=inputShape, name='input_pet')
-    
+    inputs_l = Input(shape=inputShape, name='input_left')
+    inputs_r = Input(shape=inputShape, name='input_right')
     for (i, f) in enumerate(filters):
         if i == 0:
-            x = inputs
+            l = inputs_l
+            r = inputs_r
+            r = Conv2D(32, kernel_size=3, padding="same", activation='relu')(r)
+            r = BatchNormalization(axis=chanDim)(r)
+            r = MaxPooling2D(pool_size=2)(r)
+            l = Conv2D(32, kernel_size=3, padding="same", activation='relu')(l)
+            l = BatchNormalization(axis=chanDim)(l)
+            l = MaxPooling2D(pool_size=2)(l)
+            x = concatenate([l, r])
         x = Conv3D(f, kernel_size=3, padding="same")(x)
         x = Activation("relu")(x)
         x = BatchNormalization()(x) # (axis=chanDim)
         x = MaxPooling3D(pool_size=2)(x)
-    x = GlobalAveragePooling3D()(x)
     x = Flatten()(x)
     x = Dense(128)(x)
     x = Activation("relu")(x)
