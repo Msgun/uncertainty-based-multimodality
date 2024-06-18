@@ -19,9 +19,12 @@ from tensorflow.keras.optimizers import Adam
 
 def create_mlp(hp, dim):
     model = Sequential()
-    model.add(Dense(256, input_dim=dim, activation="relu", name='input_volume'))
+    model.add(Dense(128, input_dim=dim, activation="relu", name='input_volume'))
+    model.add(Dropout(0.35))
+    model.add(Dense(32, activation="relu"))
+    model.add(Dropout(0.15))
+    model.add(Dense(256, activation="relu"))
     model.add(Dense(128, activation="relu"))
-    model.add(Dense(64, activation="relu"))
     return model
 
 def create_cnn(hp, width, height, depth, filters=([32, 64, 128, 256])):
